@@ -7,6 +7,8 @@ Files: contains the data files needed to run the pipeline.  It also has the test
 
 The Files folder is currently set up to run a test case, the phylogenetic analysis of Monosiga ovata.  For a different analysis, remove the Monosiga files from the folders TaxonDataFiles and BlastFiles and replace with your own Taxon and Blast files (The Blast files can be made from within the script, but it may be faster (or at least less user input during the pipeline analysis) to run the stand-along blast from ncbi (ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/) separately.
 
+Due to size limitations on github, we are unable to provide a necessary file - allOG5Files - but we will be happy to send this to anyone who wants it.  Or, these data can be downloaded from OrthoMCL (orthomcl.org).
+
 All scripts and folders must remain in the paths they come in, or else the scripts will need to be reworked.
 The following dependencies must be installed on your computer:
 
