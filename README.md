@@ -20,7 +20,11 @@ RAxML-PTHREADS (http://sco.h-its.org/exelixis/software.html) called as 'raxml'. 
 mafft (http://mafft.cbrc.jp/alignment/software/)
 formatdb and blast ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/
 
-Other software called (i.e. Guidance, needle) are in the Scripts package and will be called with that path.
+Other software called (i.e. Guidance, needle) are in the Scripts package and will be called with that path.  
+
+Please cite:
+Guidance: Penn O, Privman E, Ashkenazy H, Landan G, Graur D, Pupko T: GUIDANCE: a web server for assessing alignment confidence scores. Nucleic Acids Res 2010, 38:W23-W28.
+Needle: Rice,P. Longden,I. and Bleasby,A. "EMBOSS: The European Molecular Biology Open Software Suite" Trends in Genetics June 2000, vol 16, No 6. pp.276-277
 ========
 To run:
 
@@ -39,6 +43,31 @@ There will also be three uncompressed folders with the most important output:
 RenamedAlignments - full alignments with full names
 BestRaxTreesRenamed - single gene trees made from the alignments in RenamedAlignments
 AlignmentsforConcatenation - alignments with paralogs removed and named for concatenation
+========
+Test case:
+The test case is set up to run the pipeline on one taxon - Monosiga ovata - and two genes. 
+
+The taxon data is in Files/TaxonDataFiles
+The blast data is in Files/BlastFiles (preblasted against all data downloaded from orthoMCL - this will be created in the script if not found)
+The data downloaded from orthoMCL is in two files in Files/allOG5Files
+the text file test is a list of the OGs to be analyzed - the same ones as are in the allOG5Files folder.
+
+cd into Scripts and type <python phylopipe.py>
+
+you will be asked for your OGofInterestList.  Type in <test.txt> (the name of the file in Files with a list of OGs.)
+
+The script looks into the TaxonDataFiles to find the taxa to be added.  In the test case, there is only one taxon, Monosiga ovata.
+
+A new folder is made named for the output, named for the OGofInterestList, test.txt
+
+The pipeline first collects the orthologs, refines the data using pairwise alignements, then runs guidance to create alignments for each gene.
+
+The intermediate results are in directories within test.txt/Output/ which will be compressed when the pipeline completes successfully
+
+Output files will be in the test.txt/Output/
+
+The test has been run and the results are in the folder 'test_results' in the github repository
+ 
 ========
 Author: Jessica Grant.  Email questions/bug reports to jgrant@smith.edu
 Please cite: (TBD) 
